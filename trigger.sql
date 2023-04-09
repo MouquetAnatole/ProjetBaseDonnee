@@ -1,3 +1,9 @@
+/*
+
+Ligne 7 à 251 :     Trigger pour imposer l'héritage totale  
+
+*/
+
 -- Pour Heritages Totals de Subvention
 
 CREATE OR REPLACE FUNCTION Heritage_total__sub_valFix()
@@ -190,3 +196,59 @@ EXECUTE PROCEDURE Heritage_total__Pays();
 
 -- Pour Heritage Totale Liquide
 
+CREATE OR REPLACE FUNCTION Heritage_total__Eau()
+RETURNS trigger
+AS
+$$
+    BEGIN
+        IF EXISTS(SELECT id FROM Jus where Jus.id = NEW.id) OR EXISTS(SELECT id FROM Alcool where Alcool.id = NEW.id)
+            THEN 
+                RAISE EXCEPTION 'Liquid cannot be of several types';
+        END IF;
+    END;
+$$
+LANGUAGE plpgsql ;
+
+CREATE OR REPLACE TRIGGER Heritage_total__Eau
+BEFORE INSERT OR UPDATE ON Eau
+FOR EACH ROW
+EXECUTE PROCEDURE Heritage_total__Eau();
+
+CREATE OR REPLACE FUNCTION Heritage_total__Jus()
+RETURNS trigger
+AS
+$$
+    BEGIN
+        IF EXISTS(SELECT id FROM Eau where Eau.id = NEW.id) OR EXISTS(SELECT id FROM Alcool where Alcool.id = NEW.id)
+            THEN 
+                RAISE EXCEPTION 'Liquid cannot be of several types';
+        END IF;
+    END;
+$$
+LANGUAGE plpgsql ;
+
+CREATE OR REPLACE TRIGGER Heritage_total__Jus
+BEFORE INSERT OR UPDATE ON Jus
+FOR EACH ROW
+EXECUTE PROCEDURE Heritage_total__Jus();
+
+CREATE OR REPLACE FUNCTION Heritage_total__Alcool()
+RETURNS trigger
+AS
+$$
+    BEGIN
+        IF EXISTS(SELECT id FROM Jus where Jus.id = NEW.id) OR EXISTS(SELECT id FROM Eau where Eau.id = NEW.id)
+            THEN 
+                RAISE EXCEPTION 'Liquid cannot be of several types';
+        END IF;
+    END;
+$$
+LANGUAGE plpgsql ;
+
+CREATE OR REPLACE TRIGGER Heritage_total__Alcool
+BEFORE INSERT OR UPDATE ON Alcool
+FOR EACH ROW
+EXECUTE PROCEDURE Heritage_total__Alcool();
+
+
+--
