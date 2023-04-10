@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION fact( l integer, r integer)
+CREATE OR REPLACE FUNCTION prixLocal( l integer, r integer)
 RETURNS float
 AS
 $$
