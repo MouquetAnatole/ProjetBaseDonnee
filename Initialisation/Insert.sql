@@ -1,5 +1,3 @@
-
-
 INSERT INTO Fournisseur VALUES (1,'Roxane'); /* cristalline */
 INSERT INTO Fournisseur VALUES (2,'Tropicana Products, Inc.');  /* jus de fruits tropicana */
 INSERT INTO Fournisseur VALUES (3,'Heineken');  /* heineken et desperados */
@@ -7,8 +5,8 @@ INSERT INTO Fournisseur VALUES (4,'Danone'); /* fournisseur de evian et jus dano
 INSERT INTO Fournisseur VALUES (5,'Grupo Modelo'); /* biere corona */
 INSERT INTO Fournisseur VALUES (6,'PepsiCo, Inc.'); /* pepsi */
 INSERT INTO Fournisseur VALUES (7,'La Martiniquaise'); /* poliakov */
-INSERT INTO Fournisseur VALUES (8,'Red Bull GmbH'); /* fournisser de redbull */
-INSERT INTO Fournisseur VALUES (9,'Brown-Forman Corporation'); /* fournisser de jackdaniels */
+INSERT INTO Fournisseur VALUES (8,'Red Bull GmbH'); /* fournisseur de redbull */
+INSERT INTO Fournisseur VALUES (9,'Brown-Forman Corporation'); /* fournisseur de jackdaniels */
 
 
 INSERT INTO Client VALUES (1,'donatello','gisele','fan_do_du14@gmail.com');
@@ -173,22 +171,7 @@ INSERT INTO Pays VALUES (20);
 
 --id ref id_subvention
 INSERT INTO Etatique (id,id_pays_concerne) VALUES 
-(1,1),
-(2,2),
-(3,1),
-(4,1),
-(5,3),
-(6,3),
-(7,4),
-(8,20),
-(9,19),
-(10,5),
-(11,6),
-(12,7),
-(13,8),
-(14,9),
-(15,10),
-(16,10),
+(16,12),
 (17,13),
 (18,14),
 (19,15),
@@ -244,12 +227,6 @@ INSERT INTO Metropole (id) VALUES
 (60);
 
 INSERT INTO Metropolitaine (id,id_metropole_concernee) VALUES 
-(1,41),
-(2,42),
-(3,41),
-(4,41),
-(5,43),
-(6,43),
 (7,44),
 (8,50),
 (9,59),
@@ -258,12 +235,8 @@ INSERT INTO Metropolitaine (id,id_metropole_concernee) VALUES
 (12,47),
 (13,48),
 (14,49),
-(15,50),
-(16,50),
-(17,53),
-(18,54),
-(19,55),
-(20,56);
+(15,50);
+
 
 INSERT INTO Commune (id) VALUES 
 (61),
@@ -294,8 +267,7 @@ insert into Communale (id,id_commune_concernee) VALUES
 (3,61),
 (4,71),
 (5,63),
-(6,73),
-(7,74);
+(6,73);
 
 
 
@@ -517,9 +489,3 @@ insert into Geo_geo (id_geo,id_geo_macro) values
 	(78,38),
 	(79,39),
 	(80,40);
-
-
-
-
-
-
