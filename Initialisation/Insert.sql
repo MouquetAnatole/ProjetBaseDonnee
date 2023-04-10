@@ -404,7 +404,7 @@ INSERT INTO Liquide_geo VALUES (14,60,62,100);
 
 
 /*
-Fournisseur_geo(id_liquide,id_region_geo_concerne)
+Fournisseur_geo(id_fournisseur,id_region_geo_concerne)
 */
 
 INSERT INTO Fournisseur_geo VALUES (1,3);
