@@ -11,7 +11,7 @@ $$
         tmp integer;
     BEGIN
         tmp := r;
-        WHILE EXISTS(SELECT * FROM Geo_geo WHERE tmp=id_geo)
+        WHILE EXISTS(SELECT * FROM Geo_geo WHERE tmp=Geo_geo.id_geo)
         LOOP
             tmp := (SELECT id_geo_macro FROM Geo_geo WHERE tmp=id_geo);
             RETURN NEXT;

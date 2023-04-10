@@ -11,7 +11,7 @@ $$
     DECLARE
         var_r record;
     BEGIN
-        FOR var_r IN (SELECT * FROM Geo_sub_liquide where id_region_concerne=r AND id_liquide=l)
+        FOR var_r IN (SELECT * FROM Geo_sub_liquide where id_region_concernee=r AND id_liquide=l)
         LOOP
             val_const_ := (SELECT val_const FROM Sub_valFix WHERE id = var_r.id_sub);
             val_const_hab_ := (SELECT val_mult FROM Sub_valFix WHERE id = var_r.id_sub);
