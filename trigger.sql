@@ -15,6 +15,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Subvention can not be fix and by habitant';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -33,6 +34,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Subvention can not be fix and by habitant';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -54,6 +56,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Subvention can not be applied to several geographical regions';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -72,6 +75,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Subvention can not be applied to several geographical regions';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -90,6 +94,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Subvention can not be applied to several geographical regions';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -108,6 +113,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Subvention can not be applied to several geographical regions';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -130,6 +136,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Geographical Regions can not be of several classification';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -148,6 +155,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Geographical Regions can not be of several classification';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -166,6 +174,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Geographical Regions can not be of several classification';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -184,6 +193,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Geographical Regions can not be of several classification';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -205,6 +215,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Liquid cannot be of several types';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -223,6 +234,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Liquid cannot be of several types';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
@@ -241,6 +253,7 @@ $$
             THEN 
                 RAISE EXCEPTION 'Liquid cannot be of several types';
         END IF;
+        RETURN NEW;
     END;
 $$
 LANGUAGE plpgsql ;
