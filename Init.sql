@@ -16,5 +16,5 @@
 \i fonction/fct_totalSub.sql
 
 \! echo '\033[0;32;40m   INIT :  \033[0,36;40m Creation des Vues\033[0m'
-\i view/vw_prixLocal_Liquid.sql
+\i view/vw_prixLocal_Liquide.sql
 \i view/vw_subLocal_Liquide.sql

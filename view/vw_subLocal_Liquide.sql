@@ -26,4 +26,4 @@ $$
 LANGUAGE plpgsql ;
 
 CREATE OR REPLACE VIEW vw_subLocal_Liquide AS
-    SELECT Liquid.id as id_liquide, Region_geo.id as id_geo, val_const_, val_const_hab_, val_mult_, val_mult_hab_, val_upperCap_, val_lowerCap_ from Liquid,Region_geo,subLocal(Liquid.id,Region_geo.id) ORDER BY val_upperCap_,val_lowerCap_ ;
+    SELECT Liquide.id as id_liquide, Region_geo.id as id_geo, val_const_, val_const_hab_, val_mult_, val_mult_hab_, val_upperCap_, val_lowerCap_ from Liquide,Region_geo,subLocal(Liquide.id,Region_geo.id) ORDER BY val_upperCap_,val_lowerCap_ ;

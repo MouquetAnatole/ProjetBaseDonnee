@@ -19,4 +19,4 @@ $$
 LANGUAGE plpgsql ;
 
 CREATE OR REPLACE VIEW vw_prixLocal_Liquid AS
-    SELECT Liquid.id as id_liquide, Region_geo.id as id_geo , prixLocal(Liquid.id,Region_geo.id) as prixLocal from Liquid,Region_geo;
+    SELECT Liquide.id as id_liquide, Region_geo.id as id_geo , prixLocal(Liquide.id,Region_geo.id) as prixLocal from Liquide,Region_geo;
