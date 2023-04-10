@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Liquid(
+CREATE TABLE IF NOT EXISTS Liquide(
     id serial,
     ispotable BOOLEAN,
     nom text,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS Fournisseur(
 CREATE TABLE IF NOT EXISTS Subvention(
     id serial,
     nom text,
-    date_début DATE,
+    date_debut DATE,
     date_fin DATE,
     CONSTRAINT pk_subvention PRIMARY KEY (id)
 );
@@ -57,9 +57,9 @@ CREATE TABLE IF NOT EXISTS Region(
 
 CREATE TABLE IF NOT EXISTS Regionale(
     id integer,
-    id_region_concerne integer,
+    id_region_concerneee integer,
     CONSTRAINT hk_regionale FOREIGN KEY (id) REFERENCES Subvention(id),
-    CONSTRAINT fk_regionale_region FOREIGN KEY (id_region_concerne) REFERENCES Region(id),
+    CONSTRAINT fk_regionale_region FOREIGN KEY (id_region_concerneee) REFERENCES Region(id),
     CONSTRAINT pk_regionale PRIMARY KEY (id)
 );
 
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS Metropole(
 
 CREATE TABLE IF NOT EXISTS Metropolitaine(
     id integer,
-    id_region_concerne integer,
+    id_metropole_concernee integer,
     CONSTRAINT hk_metropolitaine FOREIGN KEY (id) REFERENCES Subvention(id),
-    CONSTRAINT fk_metropolitaine_metropole FOREIGN KEY (id_region_concerne) REFERENCES Metropole(id),
+    CONSTRAINT fk_metropolitaine_metropole FOREIGN KEY (id_metropole_concernee) REFERENCES Metropole(id),
     CONSTRAINT pk_regional PRIMARY KEY (id)
 );
 
@@ -85,9 +85,9 @@ CREATE TABLE IF NOT EXISTS Commune(
 
 CREATE TABLE IF NOT EXISTS Communale(
     id integer,
-    id_commune_concerne integer,
+    id_commune_concernee integer,
     CONSTRAINT hk_communale FOREIGN KEY (id) REFERENCES Subvention(id),
-    CONSTRAINT fk_communale_commune FOREIGN KEY (id_commune_concerne) REFERENCES Commune(id),
+    CONSTRAINT fk_communale_commune FOREIGN KEY (id_commune_concernee) REFERENCES Commune(id),
     CONSTRAINT pk_communale PRIMARY KEY (id)
 );
 
@@ -112,7 +112,6 @@ CREATE TABLE IF NOT EXISTS Sub_valHab(
 CREATE TABLE IF NOT EXISTS Eau(
     id integer,
     magnesium float NOT NULL,
-    nitrates float NOT NULL,
     calcium float NOT NULL,
     bicarbonates float NOT NULL,
     sulfate float NOT NULL,
@@ -121,14 +120,14 @@ CREATE TABLE IF NOT EXISTS Eau(
     potassium float NOT NULL,
     silicum float NOT NULL,
     fluor float NOT NULL,
-    CONSTRAINT hk_eau FOREIGN KEY (id) REFERENCES Liquid(id),
+    CONSTRAINT hk_eau FOREIGN KEY (id) REFERENCES Liquide(id),
     CONSTRAINT pk_eau PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS Jus(
     id integer,
     composition text,
-    CONSTRAINT hk_jus FOREIGN KEY (id) REFERENCES Liquid(id),
+    CONSTRAINT hk_jus FOREIGN KEY (id) REFERENCES Liquide(id),
     CONSTRAINT pk_jus PRIMARY KEY (id)
 );
 
@@ -136,7 +135,7 @@ CREATE TABLE IF NOT EXISTS Alcool(
     id integer,
     composition text,
     alcool_value integer,
-    CONSTRAINT hk_alcool FOREIGN KEY (id) REFERENCES Liquid(id),
+    CONSTRAINT hk_alcool FOREIGN KEY (id) REFERENCES Liquide(id),
     CONSTRAINT pk_alcool PRIMARY KEY (id)
 );
 
@@ -145,20 +144,20 @@ Debut des tables de liens.
 */
 
 CREATE TABLE IF NOT EXISTS Geo_sub_liquide(
-    id_region_concerne integer NOT NULL,
+    id_region_concernee integer NOT NULL,
     id_sub integer NOT NULL,
     id_liquide integer NOT NULL,
-    CONSTRAINT fk_geo_sub_liquide__l FOREIGN KEY (id_liquide) REFERENCES Liquid(id),
+    CONSTRAINT fk_geo_sub_liquide__l FOREIGN KEY (id_liquide) REFERENCES Liquide(id),
     CONSTRAINT fk_geo_sub_liquide__s FOREIGN KEY (id_sub) REFERENCES Subvention(id),
-    CONSTRAINT fk_geo_sub_liquide__r FOREIGN KEY (id_region_concerne) REFERENCES Region_geo(id),
+    CONSTRAINT fk_geo_sub_liquide__r FOREIGN KEY (id_region_concernee) REFERENCES Region_geo(id),
     CONSTRAINT pk_geo_sub_liquide PRIMARY KEY (id_sub)
 );
 
 CREATE TABLE IF NOT EXISTS Client_geo(
     id_client integer NOT NULL,
-    id_region_concerne integer NOT NULL,
+    id_region_concernee integer NOT NULL,
     CONSTRAINT fk_client_geo__c FOREIGN KEY (id_client) REFERENCES Client(id),
-    CONSTRAINT fk_client_geo__r FOREIGN KEY (id_region_concerne) REFERENCES Region_geo(id)
+    CONSTRAINT fk_client_geo__r FOREIGN KEY (id_region_concernee) REFERENCES Region_geo(id)
 );
 
 CREATE TABLE IF NOT EXISTS Geo_geo(
@@ -172,7 +171,7 @@ CREATE TABLE IF NOT EXISTS Client_liquide(
     id_liquide integer NOT NULL,
     id_client integer NOT NULL,
     conso float CHECK (conso >= 0),
-    CONSTRAINT fk_client_liquide__l FOREIGN KEY (id_liquide) REFERENCES Liquid(id),
+    CONSTRAINT fk_client_liquide__l FOREIGN KEY (id_liquide) REFERENCES Liquide(id),
     CONSTRAINT fk_client_liquide__c FOREIGN KEY (id_client) REFERENCES Client(id)
 );
 
@@ -181,7 +180,7 @@ CREATE TABLE IF NOT EXISTS Liquide_geo(
     id_geo__depart integer NOT NULL,
     id_geo__arrive integer NOT NULL,
     cout_deplacement float CHECK (cout_deplacement >= 0),
-    CONSTRAINT fk_liquide_geo__l FOREIGN KEY (id_liquide) REFERENCES Liquid(id),
+    CONSTRAINT fk_liquide_geo__l FOREIGN KEY (id_liquide) REFERENCES Liquide(id),
     CONSTRAINT fk_liquide_geo__g__d FOREIGN KEY (id_geo__depart) REFERENCES Region_geo(id),
     CONSTRAINT fk_liquide_geo__g__a FOREIGN KEY (id_geo__arrive) REFERENCES Region_geo(id)
 );
@@ -199,5 +198,5 @@ CREATE TABLE IF NOT EXISTS Fournisseur_liquide(
     debit_max float NOT NULL CHECK (debit_max >= 0),
     prix float NOT NULL,
     CONSTRAINT fk_fournisseur_liquid__f FOREIGN KEY (id_fournisseur) REFERENCES Fournisseur(id),
-    CONSTRAINT fk_fournisseur_liquid__l FOREIGN KEY (id_liquide) REFERENCES Liquid(id)
+    CONSTRAINT fk_fournisseur_liquid__l FOREIGN KEY (id_liquide) REFERENCES Liquide(id)
 );
