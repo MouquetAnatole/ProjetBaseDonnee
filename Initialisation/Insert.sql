@@ -5,8 +5,8 @@ INSERT INTO Fournisseur VALUES (4,'Danone'); /* fournisseur de evian et jus dano
 INSERT INTO Fournisseur VALUES (5,'Grupo Modelo'); /* biere corona */
 INSERT INTO Fournisseur VALUES (6,'PepsiCo, Inc.'); /* pepsi */
 INSERT INTO Fournisseur VALUES (7,'La Martiniquaise'); /* poliakov */
-INSERT INTO Fournisseur VALUES (8,'Red Bull GmbH'); /* fournisseur de redbull */
-INSERT INTO Fournisseur VALUES (9,'Brown-Forman Corporation'); /* fournisseur de jackdaniels */
+INSERT INTO Fournisseur VALUES (8,'Red Bull GmbH'); /* fournisser de redbull */
+INSERT INTO Fournisseur VALUES (9,'Brown-Forman Corporation'); /* fournisser de jackdaniels */
 
 
 INSERT INTO Client VALUES (1,'donatello','gisele','fan_do_du14@gmail.com');
@@ -44,7 +44,7 @@ INSERT INTO Liquide VALUES (20,true,'Biere Corona');
 INSERT INTO Region_geo VALUES (1,'FRANCE');
 INSERT INTO Region_geo VALUES (2,'JAPON');
 INSERT INTO Region_geo VALUES (3,'ETATS-UNIS');
-INSERT INTO Region_geo VALUES (4,'MAROC');
+INSERT INTO Region_geo VALUES (4,'AMSTERDAM');
 INSERT INTO Region_geo VALUES (5,'AUSTRALIE');
 INSERT INTO Region_geo VALUES (6,'BRESIL');
 INSERT INTO Region_geo VALUES (7,'ALGERIE');
@@ -57,8 +57,8 @@ INSERT INTO Region_geo VALUES (13,'MEXIQUE');
 INSERT INTO Region_geo VALUES (14,'NOUVELLE-ZELANDE');
 INSERT INTO Region_geo VALUES (15,'ESPAGNE');
 INSERT INTO Region_geo VALUES (16,'ARGENTINE');
-INSERT INTO Region_geo VALUES (17,'EGYPTE');
-INSERT INTO Region_geo VALUES (18,'IRAN');
+INSERT INTO Region_geo VALUES (17,'AUTRICHE');
+INSERT INTO Region_geo VALUES (18,'MEXIQUE');
 INSERT INTO Region_geo VALUES (19,'ALLEMAGNE');
 INSERT INTO Region_geo VALUES (20,'ITALIE');
 --Region
@@ -404,16 +404,19 @@ INSERT INTO Liquide_geo VALUES (14,60,62,100);
 
 
 /*
-Fournisseur_geo(id_fournisseur,id_region_geo_concerne)
+Fournisseur_geo(id_liquide,id_region_geo_concerne)
 */
 
-INSERT INTO Fournisseur_geo VALUES (1,3);
+INSERT INTO Fournisseur_geo VALUES (1,1);
 INSERT INTO Fournisseur_geo VALUES (2,3);
-INSERT INTO Fournisseur_geo VALUES (3,1);
-INSERT INTO Fournisseur_geo VALUES (4,3);
-INSERT INTO Fournisseur_geo VALUES (5,5);
-INSERT INTO Fournisseur_geo VALUES (6,4);
+INSERT INTO Fournisseur_geo VALUES (3,4);
+INSERT INTO Fournisseur_geo VALUES (4,1);
+INSERT INTO Fournisseur_geo VALUES (5,18);
+INSERT INTO Fournisseur_geo VALUES (6,3);
 INSERT INTO Fournisseur_geo VALUES (7,1);
+INSERT INTO Fournisseur_geo VALUES (8,17);
+INSERT INTO Fournisseur_geo VALUES (9,3);
+
 
 
 /*
@@ -489,3 +492,16 @@ insert into Geo_geo (id_geo,id_geo_macro) values
 	(78,38),
 	(79,39),
 	(80,40);
+
+
+
+
+
+
+
+
+
+
+
+
+
