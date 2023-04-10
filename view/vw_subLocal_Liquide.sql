@@ -14,8 +14,8 @@ $$
         FOR var_r IN (SELECT * FROM Geo_sub_liquide where id_region_concernee=r AND id_liquide=l)
         LOOP
             val_const_ := (SELECT val_const FROM Sub_valFix WHERE id = var_r.id_sub);
-            val_const_hab_ := (SELECT val_mult FROM Sub_valFix WHERE id = var_r.id_sub);
-            val_mult_ := (SELECT val_const FROM Sub_valHab WHERE id = var_r.id_sub);
+            val_mult_ := (SELECT val_mult FROM Sub_valFix WHERE id = var_r.id_sub);
+            val_const_hab_ := (SELECT val_const FROM Sub_valHab WHERE id = var_r.id_sub);
             val_mult_hab_ := (SELECT val_mult FROM Sub_valHab WHERE id = var_r.id_sub);
             val_upperCap_ := (SELECT val_upperCap FROM Sub_valHab WHERE id = var_r.id_sub);
             val_lowerCap_ := (SELECT val_lowerCap FROM Sub_valHab WHERE id = var_r.id_sub);
