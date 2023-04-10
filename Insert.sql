@@ -20,19 +20,25 @@ INSERT INTO Client VALUES (6,'Cristal','Line','cristalline_egerie@gmail.com');
 INSERT INTO Client VALUES (7,'LeGris','Gandalph','mageDeLaCompte@gmail.com');
 
 
-INSERT INTO Liquid VALUES (1,true,'badoit');
-INSERT INTO Liquid VALUES (2,true,'cristalline');
-INSERT INTO Liquid VALUES (3,true,'contrex');
-INSERT INTO Liquid VALUES (4,true,'vittel');
-INSERT INTO Liquid VALUES (5,true,'redbull');
-INSERT INTO Liquid VALUES (6,true,'jus orange');
-INSERT INTO Liquid VALUES (7,false,'essence');
-INSERT INTO Liquid VALUES (8,true,'coco');
-INSERT INTO Liquid VALUES (9,true,'kiwi');
-INSERT INTO Liquid VALUES (10,true,'ananas');
-INSERT INTO Liquid VALUES (11,true,'acide');
-INSERT INTO Liquid VALUES (12,false,'azote');
-INSERT INTO Liquid VALUES (13,false,'gasoil');
+INSERT INTO Liquide VALUES (1,true,'badoit');
+INSERT INTO Liquide VALUES (2,true,'cristalline');
+INSERT INTO Liquide VALUES (3,true,'contrex');
+INSERT INTO Liquide VALUES (4,true,'vittel');
+INSERT INTO Liquide VALUES (5,true,'boisson energisante');
+INSERT INTO Liquide VALUES (6,true,'jus orange');
+INSERT INTO Liquide VALUES (7,false,'essence');
+INSERT INTO Liquide VALUES (8,true,'banane');
+INSERT INTO Liquide VALUES (9,true,'kiwi');
+INSERT INTO Liquide VALUES (10,true,'ananas');
+INSERT INTO Liquide VALUES (11,true,'pomme');
+INSERT INTO Liquide VALUES (12,true,'pamplemousse');
+INSERT INTO Liquide VALUES (13,true,'danone lait et jus orange');
+INSERT INTO Liquide VALUES (14,true,'coco');
+INSERT INTO Liquide VALUES (15,false,'acide');
+INSERT INTO Liquide VALUES (16,true,'polia');
+INSERT INTO Liquide VALUES (17,true,'CaptainMorgan');
+INSERT INTO Liquide VALUES (18,true,'Jackdaniel');
+INSERT INTO Liquide VALUES (19,true,'Biere');
 
 
 
@@ -50,7 +56,7 @@ INSERT INTO Subvention VALUES (3000,'AMERIQUE DU NORD');
 INSERT INTO Subvention VALUES (4000,'AFRIQUE');
 INSERT INTO Subvention VALUES (5000,'OCEANIE');
 INSERT INTO Subvention VALUES (6000,'AMERIQUE DU SUD');
-INSERT INTO Subvention VALUES (7000,'ARCTIQUE/ANTARCTIQUE');
+INSERT INTO Subvention VALUES (7000,'ARCTIC/ANTARCTIC');
 
 INSERT INTO Pays VALUES (1);
 INSERT INTO Pays VALUES (2);
@@ -126,29 +132,42 @@ INSERT INTO Sub_valHab VALUES (6000,0,0);
 INSERT INTO Sub_valHab VALUES (7000,78,0.7);
 
 /*
-client_liquide (id_client,id_liquid,cout_conso)
+client_liquide (id_liquide,id_client,cout_conso)
 */
 
-INSERT INTO Client_liquide VALUES (1,10,1.20);
-INSERT INTO Client_liquide VALUES (1,10,1.05);
-INSERT INTO Client_liquide VALUES (2,10,2);
-INSERT INTO Client_liquide VALUES (3,10,6);
-INSERT INTO Client_liquide VALUES (4,66,5);
-INSERT INTO Client_liquide VALUES (5,66,10);
-INSERT INTO Client_liquide VALUES (1,66,10);
+INSERT INTO Client_liquide VALUES (1,1,1.20);
+INSERT INTO Client_liquide VALUES (1,2,1.05);
+INSERT INTO Client_liquide VALUES (2,2,2);
+INSERT INTO Client_liquide VALUES (3,1,6);
+
+INSERT INTO Client_liquide VALUES (4,4,5);
+INSERT INTO Client_liquide VALUES (5,5,10);
+INSERT INTO Client_liquide VALUES (1,6,10);
 
 /*
-fournisseur_liquide(id_fournisseur,id_liquid,debit_max)
+fournisseur_liquide(id_fournisseur,id_liquid,debit_max,prix)
 */
 
-
-INSERT INTO Fournisseur_liquide VALUES (1,10,1.20);
-INSERT INTO Fournisseur_liquide VALUES (1,11,1.05);
-INSERT INTO Fournisseur_liquide VALUES (2,10,2);
-INSERT INTO Fournisseur_liquide VALUES (3,3,6);
-INSERT INTO Fournisseur_liquide VALUES (3,3,5);
-INSERT INTO Fournisseur_liquide VALUES (5,6,10);
-INSERT INTO Fournisseur_liquide VALUES (1,6,10);
+--roxanne
+INSERT INTO Fournisseur_liquide VALUES (1,1,1.20,5);
+INSERT INTO Fournisseur_liquide VALUES (1,2,1.05,5);
+INSERT INTO Fournisseur_liquide VALUES (1,3,2,5);
+INSERT INTO Fournisseur_liquide VALUES (1,4,2,5);
+--tropicana
+INSERT INTO Fournisseur_liquide VALUES (2,6,1.20,5);
+INSERT INTO Fournisseur_liquide VALUES (2,8,1.05,5);
+INSERT INTO Fournisseur_liquide VALUES (2,9,2,5);
+INSERT INTO Fournisseur_liquide VALUES (2,10,2,5);
+INSERT INTO Fournisseur_liquide VALUES (2,11,1.20,5);
+INSERT INTO Fournisseur_liquide VALUES (2,12,1.05,5);
+--danone
+INSERT INTO Fournisseur_liquide VALUES (3,6,2,5);
+INSERT INTO Fournisseur_liquide VALUES (3,13,2,5);
+--
+INSERT INTO Fournisseur_liquide VALUES (3,1,6,5);
+INSERT INTO Fournisseur_liquide VALUES (3,4,5,5);
+INSERT INTO Fournisseur_liquide VALUES (5,6,10,5);
+INSERT INTO Fournisseur_liquide VALUES (1,6,10,5);
 
 /*
 geo_sub_liquide(id_region_concerne,id_sub,id_liquide)
@@ -156,9 +175,9 @@ geo_sub_liquide(id_region_concerne,id_sub,id_liquide)
 
 INSERT INTO Geo_sub_liquide VALUES (1,1000,1);
 INSERT INTO Geo_sub_liquide VALUES (2,2000,1);
-INSERT INTO Geo_sub_liquide VALUES (1,1000,2);
+INSERT INTO Geo_sub_liquide VALUES (1,7000,2);
 INSERT INTO Geo_sub_liquide VALUES (3,3000,4);
-INSERT INTO Geo_sub_liquide VALUES (5,5000,5);
+INSERT INTO Geo_sub_liquide VALUES (5,4000,5);
 INSERT INTO Geo_sub_liquide VALUES (5,5000,6);
 INSERT INTO Geo_sub_liquide VALUES (6,6000,10);
 
@@ -172,10 +191,10 @@ INSERT INTO Jus VALUES (6,'danone lait et jus orange');
 INSERT INTO Jus VALUES (7,'coco');
 
 
-INSERT INTO Alcool VALUES (1,'Poliakov',35);
+INSERT INTO Alcool VALUES (1,'polia',35);
 INSERT INTO Alcool VALUES (2,'CaptainMorgan',40);
-INSERT INTO Alcool VALUES (3,"Jack Daniel's",40);
-INSERT INTO Alcool VALUES (4,'Bière',5);
+INSERT INTO Alcool VALUES (3,'Jackdaniel',40);
+INSERT INTO Alcool VALUES (4,'Biere',5);
 
 /*
 Client_geo(id_client,id_region_geo_concerne)
@@ -216,8 +235,6 @@ INSERT INTO Fournisseur_geo VALUES (4,3);
 INSERT INTO Fournisseur_geo VALUES (5,5);
 INSERT INTO Fournisseur_geo VALUES (6,4);
 INSERT INTO Fournisseur_geo VALUES (7,1);
-
-
 
 
 
