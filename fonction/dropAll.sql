@@ -15,9 +15,9 @@ DROP FUNCTION IF EXISTS Heritage_total__Jus() CASCADE;
 DROP FUNCTION IF EXISTS Heritage_total__Alcool() CASCADE;
 DROP FUNCTION IF EXISTS prixLocal( l integer, r integer) CASCADE;
 DROP FUNCTION IF EXISTS subLocal( l integer, r integer, OUT subLocal_table(val_const, val_const_hab, val_mult, val_mult_hab, val_upperCap, val_lowerCap)) CASCADE;
+DROP FUNCTION IF EXISTS FtotalSubRegion(g integer) CASCADE;
+DROP FUNCTION IF EXISTS FtotalSubRegionLiquide(g integer,l integer ) CASCADE ;
 /*
-DROP FUNCTION IF EXISTS 
-DROP FUNCTION IF EXISTS CASCADE 
 DROP FUNCTION IF EXISTS CASCADE 
 DROP FUNCTION IF EXISTS CASCADE 
 DROP FUNCTION IF EXISTS CASCADE 
