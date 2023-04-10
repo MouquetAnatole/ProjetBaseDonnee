@@ -3,15 +3,16 @@ RETURNS float
 AS
 $$
     DECLARE
-        sub_ float;
         idl integer;
         tmpFacture float;
     BEGIN
         idl :=0;
+        tmpFacture := 0;
         LOOP
-        sub_ :=
-
-
+            IF EXISTS(SELECT conso FROM Client_liquide WHERE id_client = i AND id_liquide = idl)
+                THEN
+                    tmpFacture := tmpFacture + (SELECT prixLocal FROM vw_prixLocal_Liquid WHERE id_geo = g AND id_liquide = idl)*1.1  --1.1 pour on vent 10% plus cger que ce que ça nous coute
+                    tmpFacture := tmpFacture -FtotalSubRegionLiquide( g , idl )/(SELECT COUNT(*) FROM Client WHERE )
         idl := idl + 1;
         EXIT WHEN NOT EXISTS(SELECT * FROM Liquid WHERE id = idl);
         END LOOP;

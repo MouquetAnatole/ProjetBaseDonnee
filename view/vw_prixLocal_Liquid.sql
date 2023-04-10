@@ -20,7 +20,7 @@ LANGUAGE plpgsql ;
 
 
 CREATE OR REPLACE MATERIALIZED VIEW vw_prixLocal_Liquid AS
-    SELECT Liquid.id, Region_geo.id , prixLocal(Liquid.id,Region_geo.id) from Liquid,Region_geo;
+    SELECT Liquid.id as id_liquide, Region_geo.id as id_geo , prixLocal(Liquid.id,Region_geo.id) as prixLocal from Liquid,Region_geo;
 
 
 REFRESH MATERIALIZED VIEW vw_prixLocal_Liquid;
