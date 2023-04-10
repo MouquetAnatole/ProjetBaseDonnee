@@ -2,4 +2,4 @@
 Pour commencer :
 psql Init.sql 
 
-Les requètes ce trouvent dans le dossier requete
+Les requêtes se trouvent dans le dossier 'requete'
