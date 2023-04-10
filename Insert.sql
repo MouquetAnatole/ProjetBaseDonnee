@@ -1,12 +1,14 @@
 
 
-INSERT INTO Fournisseur VALUES (1,'cristalline');
-INSERT INTO Fournisseur VALUES (2,'ENGIE');
-INSERT INTO Fournisseur VALUES (3,'Heinekein');
-INSERT INTO Fournisseur VALUES (4,'evian');
-INSERT INTO Fournisseur VALUES (5,'total');
-INSERT INTO Fournisseur VALUES (6,'antargaz');
-INSERT INTO Fournisseur VALUES (7,'butagaz');
+INSERT INTO Fournisseur VALUES (1,'Roxane'); /* cristalline */
+INSERT INTO Fournisseur VALUES (2,'Tropicana Products, Inc.');  /* jus de fruits tropicana */
+INSERT INTO Fournisseur VALUES (3,'Heineken');  /* heineken et desperados */
+INSERT INTO Fournisseur VALUES (4,'Danone'); /* fournisseur de evian et jus danone */
+INSERT INTO Fournisseur VALUES (5,'Grupo Modelo'); /* biere corona */
+INSERT INTO Fournisseur VALUES (6,'PepsiCo, Inc.'); /* pepsi */
+INSERT INTO Fournisseur VALUES (7,'La Martiniquaise'); /* poliakov */
+INSERT INTO Fournisseur VALUES (8,'Red Bull GmbH'); /* fournisser de redbull */
+INSERT INTO Fournisseur VALUES (9,'Brown-Forman Corporation'); /* fournisser de jackdaniels */
 
 
 INSERT INTO Client VALUES (1,'donatello','gisele','fan_do_du14@gmail.com');
@@ -22,13 +24,15 @@ INSERT INTO Liquid VALUES (1,true,'badoit');
 INSERT INTO Liquid VALUES (2,true,'cristalline');
 INSERT INTO Liquid VALUES (3,true,'contrex');
 INSERT INTO Liquid VALUES (4,true,'vittel');
-INSERT INTO Liquid VALUES (5,true,'boisson energisante');
-INSERT INTO Liquid VALUES (6,false,'jus orange');
+INSERT INTO Liquid VALUES (5,true,'redbull');
+INSERT INTO Liquid VALUES (6,true,'jus orange');
 INSERT INTO Liquid VALUES (7,false,'essence');
-INSERT INTO Liquid VALUES (8,false,'coco');
-INSERT INTO Liquid VALUES (9,false,'kiwi');
+INSERT INTO Liquid VALUES (8,true,'coco');
+INSERT INTO Liquid VALUES (9,true,'kiwi');
 INSERT INTO Liquid VALUES (10,true,'ananas');
 INSERT INTO Liquid VALUES (11,true,'acide');
+INSERT INTO Liquid VALUES (12,false,'azote');
+INSERT INTO Liquid VALUES (13,false,'gasoil');
 
 
 
@@ -46,7 +50,7 @@ INSERT INTO Subvention VALUES (3000,'AMERIQUE DU NORD');
 INSERT INTO Subvention VALUES (4000,'AFRIQUE');
 INSERT INTO Subvention VALUES (5000,'OCEANIE');
 INSERT INTO Subvention VALUES (6000,'AMERIQUE DU SUD');
-INSERT INTO Subvention VALUES (7000,'ARCTIC/ANTARCTIC');
+INSERT INTO Subvention VALUES (7000,'ARCTIQUE/ANTARCTIQUE');
 
 INSERT INTO Pays VALUES (1);
 INSERT INTO Pays VALUES (2);
@@ -168,10 +172,10 @@ INSERT INTO Jus VALUES (6,'danone lait et jus orange');
 INSERT INTO Jus VALUES (7,'coco');
 
 
-INSERT INTO Alcool VALUES (1,'polia',35);
+INSERT INTO Alcool VALUES (1,'Poliakov',35);
 INSERT INTO Alcool VALUES (2,'CaptainMorgan',40);
-INSERT INTO Alcool VALUES (3,'Jackdaniel',40);
-INSERT INTO Alcool VALUES (4,'Biere',5);
+INSERT INTO Alcool VALUES (3,"Jack Daniel's",40);
+INSERT INTO Alcool VALUES (4,'Bière',5);
 
 /*
 Client_geo(id_client,id_region_geo_concerne)
@@ -212,6 +216,8 @@ INSERT INTO Fournisseur_geo VALUES (4,3);
 INSERT INTO Fournisseur_geo VALUES (5,5);
 INSERT INTO Fournisseur_geo VALUES (6,4);
 INSERT INTO Fournisseur_geo VALUES (7,1);
+
+
 
 
 
