@@ -128,27 +128,27 @@ INSERT INTO Region_geo VALUES (79, 'Munich');
 INSERT INTO Region_geo VALUES (80, 'Milan');
 
 
-INSERT INTO Subvention (nom, date_début, date_fin) VALUES 
-('Subvention pour achat de machines de production de jus', '2022-01-01', '2022-12-31'),
-('Subvention pour la modernisation de la production de bière artisanale', '2022-03-15', '2023-03-14'),
-('Subvention pour le développement une entreprise de distribution de vin bio', '2022-05-01', '2023-05-01'),
-('Subvention pour installation un système de filtration eau pour la production de whisky', '2022-07-01', '2023-07-01'),
-('Subvention pour achat de cuves de fermentation pour la production de bière', '2022-09-01', '2023-09-01'),
-('Subvention pour le développement une entreprise de distribution de thé haut de gamme', '2022-11-01', '2023-11-01'),
-('Subvention pour achat un système de pasteurisation pour la production de lait', '2023-01-01', '2024-01-01'),
-('Subvention pour la modernisation de la production de soda artisanal', '2023-03-01', '2024-03-01'),
-('Subvention pour le développement une entreprise de distribution de champagne bio', '2023-05-01', '2024-05-01'),
-('Subvention pour installation un système de nettoyage automatisé pour la production de spiritueux', '2023-07-01', '2024-07-01'),
-('Subvention pour la promotion des produits locaux', '2022-01-01', '2022-06-30'),
-('Subvention pour amélioration de la qualité des eaux de surface', '2022-03-01', '2022-12-31'),
-('Subvention pour la modernisation des exploitations agricoles', '2022-04-01', '2022-09-30'),
-('Subvention pour la transition vers une agriculture biologique', '2022-05-01', '2022-11-30'),
-('Subvention pour la construction de serres horticoles', '2022-07-01', '2022-12-31'),
-('Subvention pour amélioration de la qualité des sols', '2022-08-01', '2022-12-31'),
-('Subvention pour installation de systèmes irrigation économes', '2022-09-01', '2022-12-31'),
-('Subvention pour la réduction des émissions de gaz à effet de serre en agriculture', '2022-10-01', '2022-12-31'),
-('Subvention pour achat de matériel agricole performant', '2022-11-01', '2022-12-31'),
-('Subvention pour la mise en place de pratiques agroforestières', '2022-12-01', '2022-12-31');
+INSERT INTO Subvention (id, nom, date_debut, date_fin) VALUES 
+(1,'Subvention pour achat de machines de production de jus', '2022-01-01', '2022-12-31'),
+(2,'Subvention pour la modernisation de la production de bière artisanale', '2022-03-15', '2023-03-14'),
+(3,'Subvention pour le développement une entreprise de distribution de vin bio', '2022-05-01', '2023-05-01'),
+(4,'Subvention pour installation un système de filtration eau pour la production de whisky', '2022-07-01', '2023-07-01'),
+(5,'Subvention pour achat de cuves de fermentation pour la production de bière', '2022-09-01', '2023-09-01'),
+(6,'Subvention pour le développement une entreprise de distribution de thé haut de gamme', '2022-11-01', '2023-11-01'),
+(7,'Subvention pour achat un système de pasteurisation pour la production de lait', '2023-01-01', '2024-01-01'),
+(8,'Subvention pour la modernisation de la production de soda artisanal', '2023-03-01', '2024-03-01'),
+(9,'Subvention pour le développement une entreprise de distribution de champagne bio', '2023-05-01', '2024-05-01'),
+(10,'Subvention pour installation un système de nettoyage automatisé pour la production de spiritueux', '2023-07-01', '2024-07-01'),
+(11,'Subvention pour la promotion des produits locaux', '2022-01-01', '2022-06-30'),
+(12,'Subvention pour amélioration de la qualité des eaux de surface', '2022-03-01', '2022-12-31'),
+(13,'Subvention pour la modernisation des exploitations agricoles', '2022-04-01', '2022-09-30'),
+(14,'Subvention pour la transition vers une agriculture biologique', '2022-05-01', '2022-11-30'),
+(15,'Subvention pour la construction de serres horticoles', '2022-07-01', '2022-12-31'),
+(16,'Subvention pour amélioration de la qualité des sols', '2022-08-01', '2022-12-31'),
+(17,'Subvention pour installation de systèmes irrigation économes', '2022-09-01', '2022-12-31'),
+(18,'Subvention pour la réduction des émissions de gaz à effet de serre en agriculture', '2022-10-01', '2022-12-31'),
+(19,'Subvention pour achat de matériel agricole performant', '2022-11-01', '2022-12-31'),
+(20,'Subvention pour la mise en place de pratiques agroforestières', '2022-12-01', '2022-12-31');
 
 INSERT INTO Pays VALUES (1);
 INSERT INTO Pays VALUES (2);
@@ -243,7 +243,7 @@ INSERT INTO Metropole (id) VALUES
 (59),
 (60);
 
-INSERT INTO Metropolitaine (id,id_region_concerne) VALUES 
+INSERT INTO Metropolitaine (id,id_metropole_concernee) VALUES 
 (1,41),
 (2,42),
 (3,41),
@@ -287,7 +287,7 @@ INSERT INTO Commune (id) VALUES
 (79),
 (80);
 
-insert into Communale (id,id_commune_concerne) VALUES
+insert into Communale (id,id_commune_concernee) VALUES
 
 (1,61),
 (2,72),
@@ -301,10 +301,10 @@ insert into Communale (id,id_commune_concerne) VALUES
 
 
 
-INSERT INTO Eau VALUES (1,0,0,0,0.1,0.5,0,0,9,10,4);
-INSERT INTO Eau VALUES (2,0,0,0,0.1,0.5,0,0,9,10,4);
-INSERT INTO Eau VALUES (3,0,0,0,0.1,0.5,0,0,9,10,4);
-INSERT INTO Eau VALUES (4,0,0,0,0.1,0.5,0,0,9,10,4);
+INSERT INTO Eau VALUES (1,0,0,0.1,0.5,0,0,9,10,4);
+INSERT INTO Eau VALUES (2,0,0,0.1,0.5,0,0,9,10,4);
+INSERT INTO Eau VALUES (3,0,0,0.1,0.5,0,0,9,10,4);
+INSERT INTO Eau VALUES (4,0,0,0.1,0.5,0,0,9,10,4);
 
 
 INSERT INTO Sub_valFix VALUES (11,546547,0.1);
