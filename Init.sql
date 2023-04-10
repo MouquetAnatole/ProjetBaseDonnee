@@ -1,7 +1,7 @@
-\! echo '\033[0;32;40m   INIT :  \033[0,36;40m Creation des tables\033[0m'
-\i TableSuppression.sql
+\! echo '\033[0;32;40m   INIT :  \033[0,36;40m Pré processing \033[0m-- Dropping all'
 \i fonction/dropAll.sql
 \i view/dropAll.sql
+\i TableSuppression.sql
 
 \! echo '\033[0;32;40m   INIT :  \033[0,36;40m Creation des tables\033[0m'
 \i TableCreation.sql
