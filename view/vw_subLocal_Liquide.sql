@@ -36,7 +36,7 @@ LANGUAGE plpgsql ;
 
 
 CREATE OR REPLACE MATERIALIZED VIEW vw_subLocal_Liquide AS
-    SELECT Liquid.id, Region_geo.id , val_const, val_const_hab, val_mult, val_mult_hab, val_upperCap, val_lowerCap from Liquid,Region_geo,subLocal(Liquid.id,Region_geo.id) GROUP BY Liquid.id,Region_geo.id ORDER BY val_upperCap,val_lowerCap ;
+    SELECT Liquid.id as id_liquide, Region_geo.id as id_geo, val_const, val_const_hab, val_mult, val_mult_hab, val_upperCap, val_lowerCap from Liquid,Region_geo,subLocal(Liquid.id,Region_geo.id) GROUP BY Liquid.id,Region_geo.id ORDER BY val_upperCap,val_lowerCap ;
 
 
 REFRESH MATERIALIZED VIEW vw_subLocal_Liquide;
