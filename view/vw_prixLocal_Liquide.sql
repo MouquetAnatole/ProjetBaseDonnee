@@ -4,12 +4,7 @@ RETURNS float
 AS
 $$
     BEGIN
-        IF NOT EXISTS ( SELECT prix AS cout 
-                        FROM Fournisseur_liquide as Fl
-                        WHERE l= id_liquide AND r IN (  SELECT FRegionEnglobantes(Fg.id_geo) 
-                                                        FROM Fournisseur_geo AS Fg JOIN Fournisseur_liquide AS Fl
-                                                        ON Fl.id_fournisseur=Fg.id_fournisseur
-                                                        WHERE Fg.id_fournisseur=Fl.id_fournisseur AND Fl.id_liquide=l) 
+        IF NOT EXISTS ( SELECT prix AS cout FROM Fournisseur_liquide AS Fl JOIN Fournisseur_geo AS Fg ON Fg.id_fournisseur=Fl.id_fournisseur WHERE l= id_liquide AND Fg.id_geo IN (SELECT FRegionEnglobantes(r) )
                         UNION 
                         SELECT MIN(cout_deplacement) AS cout 
                         FROM Liquide_geo 
@@ -19,14 +14,9 @@ $$
         THEN
             RETURN 'Infinity';
             --RAISE EXCEPTION 'ERREUR, impossible d acheminer le liquide';
-        ELSEIF EXISTS(SELECT prix AS cout 
-                        FROM Fournisseur_liquide 
-                        WHERE l= id_liquide AND NOT prix IS  NULL AND r IN (  SELECT FRegionEnglobantes(Fg.id_geo) 
-                                                        FROM Fournisseur_geo AS Fg JOIN Fournisseur_liquide AS Fl
-                                                        ON Fl.id_fournisseur=Fg.id_fournisseur
-                                                        WHERE Fg.id_fournisseur=Fl.id_fournisseur AND fournisseur_liquide.id_liquide=l) )
+        ELSEIF EXISTS(SELECT prix AS cout FROM Fournisseur_liquide AS Fl JOIN Fournisseur_geo AS Fg ON Fg.id_fournisseur=Fl.id_fournisseur WHERE l= id_liquide AND Fg.id_geo IN (SELECT FRegionEnglobantes(r) ))
             THEN 
-                RETURN (SELECT prix AS cout FROM Fournisseur_liquide WHERE l= id_liquide AND r IN (SELECT FRegionEnglobantes(Region_geo.id) FROM Region_geo JOIN Fournisseur_geo ON Region_geo.id=Fournisseur_geo.id_geo WHERE Fournisseur_geo.id_fournisseur=Fournisseur_liquide.id_fournisseur));
+                RETURN (SELECT Min(prix) AS cout FROM Fournisseur_liquide AS Fl JOIN Fournisseur_geo AS Fg ON Fg.id_fournisseur=Fl.id_fournisseur WHERE l= id_liquide AND Fg.id_geo IN (SELECT FRegionEnglobantes(r) ));
         ELSE
             RETURN (SELECT MIN(cout_deplacement) AS cout 
                         FROM Liquide_geo 
