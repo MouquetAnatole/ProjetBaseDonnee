@@ -4,7 +4,7 @@ RETURNS float
 AS
 $$
     BEGIN
-        IF NOT EXISTS (SELECT cout_deplacement AS cout FROM Liquide_geo WHERE id_geo__arrive=r id_liquide=l UNION SELECT prix AS cout FROM Fournisseur_liquide where l= id_liquide AND r IN (SELECT FRegionEnglobantes(Region_geo.id) FROM Region_geo where Fournisseur_geo.id_fournisseur=Fournisseur_liquide.id_fournisseur))
+        IF NOT EXISTS (SELECT cout_deplacement AS cout FROM Liquide_geo WHERE id_geo__arrive=r AND id_liquide=l UNION SELECT prix AS cout FROM Fournisseur_liquide where l= id_liquide AND r IN (SELECT FRegionEnglobantes(Region_geo.id) FROM Region_geo where Fournisseur_geo.id_fournisseur=Fournisseur_liquide.id_fournisseur))
         THEN
             RAISE EXCEPTION 'ERREUR, impossible d acheminer le liquide';
         ELSEIF EXISTS(SELECT prix AS cout FROM Fournisseur_liquide where l= id_liquide AND r IN (SELECT FRegionEnglobantes(Region_geo.id) FROM Region_geo where Fournisseur_geo.id_fournisseur=Fournisseur_liquide.id_fournisseur))
@@ -19,8 +19,8 @@ $$
 LANGUAGE plpgsql ;
 
 
-CREATE OR REPLACE MATERIALIZED VIEW vw_prixLocal_Liquid AS
+CREATE OR REPLACE VIEW vw_prixLocal_Liquid AS
     SELECT Liquid.id as id_liquide, Region_geo.id as id_geo , prixLocal(Liquid.id,Region_geo.id) as prixLocal from Liquid,Region_geo;
 
 
-REFRESH MATERIALIZED VIEW vw_prixLocal_Liquid;
+REFRESH VIEW vw_prixLocal_Liquid;
