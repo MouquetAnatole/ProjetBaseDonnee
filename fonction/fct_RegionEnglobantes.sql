@@ -13,7 +13,8 @@ $$
         tmp := r;
         WHILE EXISTS(SELECT * FROM Geo_geo WHERE tmp=Geo_geo.id_geo)
         LOOP
-            tmp := (SELECT id_geo_macro FROM Geo_geo WHERE tmp=id_geo);
+            tmp := (SELECT id_geo_macro FROM Geo_geo WHERE tmp=Geo_geo.id_geo);
+            id_geo :=tmp;
             RETURN NEXT;
         END LOOP;
     END;
