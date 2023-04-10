@@ -38,7 +38,7 @@ $$
         tmp := 0;
         id_ := 0;
         LOOP
-            IF EXISTS(SELECT * FROM Geo_sub_liquide WHERE id_ = id_sub AND id_geo = g)
+            IF EXISTS(SELECT * FROM Geo_sub_liquide WHERE id_ = id_sub AND id_region_concerne = g)
                 IF EXISTS(SELECT * FROM Sub_valFix WHERE id_ = Sub_valFix.id)
                     THEN 
                         tmp := tmp + (SELECT val_const FROM Sub_valFix WHERE id_=Sub_valFix.id);
@@ -55,7 +55,7 @@ $$
         RETURN tmp;
     END;
 $$
-LANGUAGE plpgsql ;
+LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION FtotalSubRegionLiquide(g integer,l integer )
 RETURNS float
@@ -68,7 +68,7 @@ $$
         tmp := 0;
         id_ := 0;
         LOOP
-            IF EXISTS(SELECT * FROM Geo_sub_liquide WHERE id_ = id_sub AND id_geo = g AND id_liquide = l)
+            IF EXISTS(SELECT * FROM Geo_sub_liquide WHERE id_ = id_sub AND id_region_concerne = g AND id_liquide = l)
             THEN 
                 IF EXISTS(SELECT * FROM Sub_valFix WHERE id_ = Sub_valFix.id)
                     THEN 
@@ -76,7 +76,7 @@ $$
                 ELSE
                     IF (SELECT COUNT(*) FROM Client WHERE FisRegionIn(id_geo,(SELECT id_geo FROM Subvention WHERE id_ = id))) >= (SELECT val_lowerCap FROM Sub_valHab WHERE id_ = id)
                     THEN
-                        tmp := tmp + (SELECT val_const FROM Sub_valHab WHERE id_ = id)*(SELECT MIN(val_upperCap) FROM Sub_valHab WHERE id_ = id UNION SELECT COUNT(*) FROM Client WHERE FisRegionIn(id_geo,(SELECT id_geo FROM Subvention WHERE id_ = id)))
+                        tmp := tmp + (SELECT val_const FROM Sub_valHab WHERE id_ = id)*(SELECT MIN(val_upperCap) FROM Sub_valHab WHERE id_ = id UNION SELECT COUNT(*) FROM Client WHERE FisRegionIn(id_geo,(SELECT id_geo FROM Subvention WHERE id_ = id)));
                     END IF;
                 END IF;
             END IF;

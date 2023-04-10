@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION subLocal( l integer, r integer, OUT subLocal_table(val_const integer , val_const_hab integer , val_mult integer , val_mult_hab integer, val_upperCap integer , val_lowerCap integer))
+CREATE OR REPLACE FUNCTION subLocal( l integer, r integer, OUT subLocal_table(val_const float , val_const_hab float , val_mult float , val_mult_hab float, val_upperCap integer , val_lowerCap integer))
 AS
 -- return subLocal_table a table
 $$
