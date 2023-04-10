@@ -13,9 +13,11 @@ $$
                 THEN
                     tmpFacture := tmpFacture + (SELECT prixLocal FROM vw_prixLocal_Liquid WHERE id_geo = g AND id_liquide = idl)*1.1;  --1.1 pour on vent 10% plus cger que ce que ça nous coute
                     tmpFacture := tmpFacture - FtotalSubRegionLiquide( g , idl )/(SELECT COUNT(*) FROM Client_liquide JOIN Client ON id=id_Client  WHERE id_liquide=idl AND FisRegionIn(id_geo , g) );
-        idl := idl + 1;
+            END IF;
+            idl := idl + 1;
         EXIT WHEN NOT EXISTS(SELECT * FROM Liquide WHERE id = idl);
         END LOOP;
+        RETURN tmpFacture;
     END;
 $$
 LANGUAGE plpgsql ;
