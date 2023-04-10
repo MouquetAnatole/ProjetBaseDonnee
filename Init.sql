@@ -1,14 +1,14 @@
 \! echo '\033[1;32;40m   INIT :  \033[0,36;40m Pré processing \033[0m-- Dropping all'
 \i fonction/dropAll.sql
 \i view/dropAll.sql
-\i TableSuppression.sql
+\i Initialisation/TableSuppression.sql
 
 \! echo '\033[1;32;40m   INIT :  \033[0,36;40m Creation des tables\033[0m'
-\i TableCreation.sql
-\i trigger.sql
+\i Initialisation/TableCreation.sql
+\i Initialisation/trigger.sql
 
 \! echo '\033[1;32;40m   INIT :  \033[0,36;40m Remplissages des tables\033[0m'
-\i Insert.sql
+\i Initialisation/Insert.sql
 
 \! echo '\033[1;32;40m   INIT :  \033[0,36;40m Creation des Fonctions\033[0m'
 \i fonction/fct_RegionEnglobantes.sql
