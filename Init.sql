@@ -1,5 +1,5 @@
 \! echo '\033[0;32;40m   INIT :  \033[0,36;40m Creation des tables\033[0m'
-\i TableSupression.sql
+\i TableSuppression.sql
 \i fonction/dropAll.sql
 \i view/dropAll.sql
 
