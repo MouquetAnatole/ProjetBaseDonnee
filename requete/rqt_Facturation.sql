@@ -14,7 +14,7 @@ $$
 
         idl := idl + 1;
         EXIT WHEN NOT EXISTS(SELECT * FROM Liquid WHERE id = idl);
-        END LOOP
+        END LOOP;
     END;
 $$
 LANGUAGE plpgsql ;

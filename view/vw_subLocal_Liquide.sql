@@ -29,7 +29,7 @@ $$
 
                 id_sub := id_sub +1;
                 EXIT WHEN NOT EXISTS(SELECT * FROM Subvention WHERE id = id_sub);
-            END LOOP
+            END LOOP;
     END;
 $$
 LANGUAGE plpgsql ;
