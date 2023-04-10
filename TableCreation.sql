@@ -93,16 +93,16 @@ CREATE TABLE IF NOT EXISTS Communale(
 
 CREATE TABLE IF NOT EXISTS Sub_valFix(
     id integer,
-    val_const integer DEFAULT 0 CHECK (val_mult >= 0),
-    val_mult integer DEFAULT 0 CHECK (val_mult >= 0 and val_mult <= 1),
+    val_const float DEFAULT 0 CHECK (val_mult >= 0),
+    val_mult float DEFAULT 0 CHECK (val_mult >= 0 and val_mult <= 1),
     CONSTRAINT hk_sub_valFix FOREIGN KEY (id) REFERENCES Subvention(id),
     CONSTRAINT pk_sub_valfix PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS Sub_valHab(
     id integer,
-    val_const integer DEFAULT 0 CHECK (val_mult >= 0),
-    val_mult integer DEFAULT 0 CHECK (val_mult >= 0 and val_mult <= 1),
+    val_const float DEFAULT 0 CHECK (val_mult >= 0),
+    val_mult float DEFAULT 0 CHECK (val_mult >= 0 and val_mult <= 1),
     val_upperCap integer NOT NULL CHECK (val_upperCap > 0),
     val_lowerCap integer DEFAULT 0 CHECK (val_lowerCap > 0),
     CONSTRAINT hk_sub_valhab FOREIGN KEY (id) REFERENCES Subvention(id),
